@@ -8,8 +8,8 @@ incluindo, e sem limitar-se ao uso, cópia, modificação, combinação e/ou
 publicação, bem como a aplicação em outros trabalhos derivados deste.
 
 A mensagem de direito autoral:
-	Mail Parse Lib para PHP
-	Copyright (c) 2015 Primos Tecnologia da Informação Ltda.
+    Mail Parse Lib para PHP
+    Copyright (c) 2015 Primos Tecnologia da Informação Ltda.
 deverá ser incluída em todas as cópias ou partes do obra derivado que permitam a
 inclusão desta informação.
 
@@ -54,16 +54,16 @@ You must understand and agree to the above terms before using this work.
 */
 
 /*
-	=====================================
-	Mail Parse Lib para PHP
-	=====================================
-	Versão:      0.0.1
-	Criação:     2015-03-28
-	Alteração:   2015-03-28
-	
-	Escrito por: Rodrigo Speller
-	E-mail:      rspeller@primosti.com.br
-	-------------------------------------
+    =====================================
+    Mail Parse Lib para PHP
+    =====================================
+    Versão:      0.0.1
+    Criação:     2015-03-26
+    Alteração:   2015-03-26
+    
+    Escrito por: Rodrigo Speller
+    E-mail:      rspeller@primosti.com.br
+    -------------------------------------
 
 "Mail Parse Lib" é uma biblioteca para a análise, tratamento e manipulação de
 dados para uso em serviços de e-mail baseados na [RFC 5321].
@@ -96,21 +96,21 @@ Referências
 [RFC 5234] Crocker, D. e P. Overell, "Augmented BNF for Syntax Specifications:
            ABNF", STD 68, RFC 5234, Janeiro/2008,
            <http://tools.ietf.org/html/rfc5234>.
-		 
+         
 [RFC 5321] Klensin, J., "Simple Mail Transfer Protocol", RFC 5321, Outubro/2008,
            <http://tools.ietf.org/html/rfc5321>.
-		 
+         
 [RFC 5952] Kawamura, W. e W. Kawashima,
            "A Recommendation for IPv6 Address Text Representation", RFC 5321,
            Agosto/2010, <http://tools.ietf.org/html/rfc5952>.
 
 */
 
-const MAIL_ADDR_TYPE_HOSTNAME = 0x01;
-const MAIL_ADDR_TYPE_IPV4     = 0x02;
-const MAIL_ADDR_TYPE_IPV6     = 0x03;
-const MAIL_ADDR_TYPE_GENERIC  = 0x04;
-const MAIL_ADDR_TYPE_IDN      = 0xFFFFFFFF; /* Uso futuro */
+const MAIL_ADDR_TYPE_HOSTNAME    = 0x01;
+const MAIL_ADDR_TYPE_IPV4        = 0x02;
+const MAIL_ADDR_TYPE_IPV6        = 0x03;
+const MAIL_ADDR_TYPE_GENERIC    = 0x04;
+const MAIL_ADDR_TYPE_IDN        = 0xFFFFFFFF; /* Uso futuro */
 
 /**
  * Analisa um endereço conforme o formato definido pela [RFC 5321].
@@ -173,63 +173,63 @@ const MAIL_ADDR_TYPE_IDN      = 0xFFFFFFFF; /* Uso futuro */
  *       IPv4.
  */
 function mail_parse_address($address) {
-	/**
-	 * Padrão para análise do endereço.
-	 * O padrão foi simplificado e os caracteres reduzidos para melhorar o
-	 * desempenho da pesquisa.
-	 */
-	$pattern = '/(?(DEFINE)(?<a>(?:[0-9]|[A-Fa-f]){1,4})(?<b>(?&f)(?:\.(?&f)){3'
-		.'})(?<c>(?=.{0,63}(?!(?&d)))(?:[A-Za-z]|[0-9])(?&d)?)(?<d>(?:[A-Za-z]|'
-		.'[0-9]|-)*(?:[A-Za-z]|[0-9]))(?<e>(?:[A-Za-z]|[0-9]|[!#\$%&\'*+\-\/=?^'
-		.'_`{|}~])+)(?<f>25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9]))^(?<_localp'
-		.'art>(?:(?&e)(?:\.(?&e))*)|(?:"(?:(?:[\x20-\x21]|[\x23-\x5b]|[\x5d-\x7'
-		.'e])|(?:\\\\[\x20-\x7e]))*"))\@(?<_tag>(?<_hostname>(?&c)(?:\.(?&c))*)'
-		.'|\[(?:(?<_ipv4>(?&b))|IPv6:(?<_ipv6>(?:(?:(?&a):){6}|::(?:(?&a):){5}|'
-		.'(?&a)?::(?:(?&a):){4}|(?:(?:(?&a):){0,1}(?&a))?::(?:(?&a):){3}|(?:(?:'
-		.'(?&a):){0,2}(?&a))?::(?:(?&a):){2}|(?:(?:(?&a):){0,3}(?&a))?::(?&a):|'
-		.'(?:(?:(?&a):){0,4}(?&a))?::)(?:(?&a):(?&a)|(?<_ipv6v4>(?&b)))|(?:(?:('
-		.'?&a):){0,5}(?&a))?::(?&a)|(?:(?:(?&a):){0,6}(?&a))?::)|(?<_generic>(?'
-		.'&d):(?:[\x21-\x5a]|[\x5e-\x7f])+))\])$/';	
+    /**
+     * Padrão para análise do endereço.
+     * O padrão foi simplificado e os caracteres reduzidos para melhorar o
+     * desempenho da pesquisa.
+     */
+    $pattern = '/(?(DEFINE)(?<a>(?:[0-9]|[A-Fa-f]){1,4})(?<b>(?&f)(?:\.(?&f)){3'
+        .'})(?<c>(?=.{0,63}(?!(?&d)))(?:[A-Za-z]|[0-9])(?&d)?)(?<d>(?:[A-Za-z]|'
+        .'[0-9]|-)*(?:[A-Za-z]|[0-9]))(?<e>(?:[A-Za-z]|[0-9]|[!#\$%&\'*+\-\/=?^'
+        .'_`{|}~])+)(?<f>25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9]))^(?<_localp'
+        .'art>(?:(?&e)(?:\.(?&e))*)|(?:"(?:(?:[\x20-\x21]|[\x23-\x5b]|[\x5d-\x7'
+        .'e])|(?:\\\\[\x20-\x7e]))*"))\@(?<_tag>(?<_hostname>(?&c)(?:\.(?&c))*)'
+        .'|\[(?:(?<_ipv4>(?&b))|IPv6:(?<_ipv6>(?:(?:(?&a):){6}|::(?:(?&a):){5}|'
+        .'(?&a)?::(?:(?&a):){4}|(?:(?:(?&a):){0,1}(?&a))?::(?:(?&a):){3}|(?:(?:'
+        .'(?&a):){0,2}(?&a))?::(?:(?&a):){2}|(?:(?:(?&a):){0,3}(?&a))?::(?&a):|'
+        .'(?:(?:(?&a):){0,4}(?&a))?::)(?:(?&a):(?&a)|(?<_ipv6v4>(?&b)))|(?:(?:('
+        .'?&a):){0,5}(?&a))?::(?&a)|(?:(?:(?&a):){0,6}(?&a))?::)|(?<_generic>(?'
+        .'&d):(?:[\x21-\x5a]|[\x5e-\x7f])+))\])$/';    
 
-	$match;
-	if(!preg_match($pattern, $address, $match))
-		return false;
+    $match;
+    if(!preg_match($pattern, $address, $match))
+        return false;
 
-	$ret = array(
-		'local-part'	=> $match['_localpart'],
-		'tag-part'	=> $match['_tag']
-	);
-	
-	$tmp = $ret['local-part'];
-	if($tmp[0] == '"')
-		$tmp = stripslashes(substr($tmp, 1, -1));
-	$ret['local'] = $tmp;
+    $ret = array(
+        'local-part'    => $match['_localpart'],
+        'tag-part'    => $match['_tag']
+    );
+    
+    $tmp = $ret['local-part'];
+    if($tmp[0] == '"')
+        $tmp = stripslashes(substr($tmp, 1, -1));
+    $ret['local'] = $tmp;
 
-	$tag_keys = array(
-		'_hostname'	=> MAIL_ADDR_TYPE_HOSTNAME,
-		'_ipv4'		=> MAIL_ADDR_TYPE_IPV4,
-		'_ipv6'		=> MAIL_ADDR_TYPE_IPV6,
-		'_generic'	=> MAIL_ADDR_TYPE_GENERIC
-	);
-	
-	foreach($tag_keys as $key => $type) {
-		if($match[$key]) {
-			$ret['tag'] = $match[$key];
-			$ret['type'] = $type;
-			
-			switch($key) {
-			case '_hostname':
-				if(strlen($ret['tag']) > 255)
-					return false;
-				break;
-			case '_ipv6':
-				$ret['ipv4-mapped'] = !empty($match['_ipv6v4']);
-				break;
-			}
-			return $ret;
-		}
-	}
-	
-	return false;
+    $tag_keys = array(
+        '_hostname'    => MAIL_ADDR_TYPE_HOSTNAME,
+        '_ipv4'        => MAIL_ADDR_TYPE_IPV4,
+        '_ipv6'        => MAIL_ADDR_TYPE_IPV6,
+        '_generic'    => MAIL_ADDR_TYPE_GENERIC
+    );
+    
+    foreach($tag_keys as $key => $type) {
+        if($match[$key]) {
+            $ret['tag'] = $match[$key];
+            $ret['type'] = $type;
+            
+            switch($key) {
+            case '_hostname':
+                if(strlen($ret['tag']) > 255)
+                    return false;
+                break;
+            case '_ipv6':
+                $ret['ipv4-mapped'] = !empty($match['_ipv6v4']);
+                break;
+            }
+            return $ret;
+        }
+    }
+    
+    return false;
 }
 ?>

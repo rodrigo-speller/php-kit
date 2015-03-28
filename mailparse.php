@@ -106,11 +106,11 @@ Referências
 
 */
 
-const MAIL_ADDR_TYPE_HOSTNAME    = 0x01;
-const MAIL_ADDR_TYPE_IPV4        = 0x02;
-const MAIL_ADDR_TYPE_IPV6        = 0x03;
-const MAIL_ADDR_TYPE_GENERIC    = 0x04;
-const MAIL_ADDR_TYPE_IDN        = 0xFFFFFFFF; /* Uso futuro */
+const MAIL_ADDR_TYPE_HOSTNAME = 0x01;
+const MAIL_ADDR_TYPE_IPV4     = 0x02;
+const MAIL_ADDR_TYPE_IPV6     = 0x03;
+const MAIL_ADDR_TYPE_GENERIC  = 0x04;
+const MAIL_ADDR_TYPE_IDN      = 0xFFFFFFFF; /* Uso futuro */
 
 /**
  * Analisa um endereço conforme o formato definido pela [RFC 5321].
@@ -206,10 +206,10 @@ function mail_parse_address($address) {
     $ret['local'] = $tmp;
 
     $tag_keys = array(
-        '_hostname'    => MAIL_ADDR_TYPE_HOSTNAME,
-        '_ipv4'        => MAIL_ADDR_TYPE_IPV4,
-        '_ipv6'        => MAIL_ADDR_TYPE_IPV6,
-        '_generic'    => MAIL_ADDR_TYPE_GENERIC
+        '_hostname' => MAIL_ADDR_TYPE_HOSTNAME,
+        '_ipv4'     => MAIL_ADDR_TYPE_IPV4,
+        '_ipv6'     => MAIL_ADDR_TYPE_IPV6,
+        '_generic'  => MAIL_ADDR_TYPE_GENERIC
     );
     
     foreach($tag_keys as $key => $type) {
